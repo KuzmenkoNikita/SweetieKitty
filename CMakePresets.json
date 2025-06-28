@@ -1,0 +1,62 @@
+{
+    "version": 3,
+
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+
+    "configurePresets": [
+    {
+        "name": "windows-clang-debug",
+        "displayName": "Windows Clang (Debug)",
+        "description": "Debug build with Clang-cl (MSVC-compatible)",
+        "generator": "Ninja",
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_C_COMPILER": "clang-cl",
+            "CMAKE_CXX_COMPILER": "clang-cl",
+            "CMAKE_CONFIGURATION_TYPES": "Debug",
+            "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDebug"
+        },
+
+        "environment": {
+            "CC": "clang-cl",
+            "CXX": "clang-cl"
+      }
+    },
+
+    {
+        "name": "windows-clang-release",
+        "displayName": "Windows Clang (Release)",
+        "description": "Release build with Clang-cl (MSVC-compatible)",
+        "generator": "Ninja",
+        "binaryDir": "${sourceDir}/build/${presetName}",
+
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Release",
+            "CMAKE_C_COMPILER": "clang-cl",
+            "CMAKE_CXX_COMPILER": "clang-cl",
+            "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded",
+            "CMAKE_MAKE_PROGRAM": "ninja" 
+      }
+    }
+    ],
+
+    "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "windows-clang-debug",
+      "configuration": "Debug"
+    },
+    
+    {
+      "name": "release",
+      "configurePreset": "windows-clang-release",
+      "configuration": "Release"
+    }
+    ]
+}
