@@ -1,5 +1,5 @@
 #pragma once
-#include "constants/constants.h"
+#include "constants.h"
 
 namespace SweetieKitty_ {
 
@@ -10,19 +10,17 @@ public:
                                                                                     color_(color), 
                                                                                     isMoved_(isMoved) {};
 
-    virtual ~Piece() = default;
-
-    constants::PieceType type() const noexcept
+    auto type() const noexcept -> constants::PieceType
     {
         return type_;
     };
 
-    constants::Color color() const noexcept
+    auto color() const noexcept -> constants::Color
     {
         return color_;
     }
 
-    bool isMoved() const noexcept
+    auto isMoved() const noexcept -> bool
     {
         return isMoved_;
     }
@@ -38,4 +36,4 @@ private:
     bool isMoved_ = false;
 };
 
-}
+}  // namespace SweetieKitty_

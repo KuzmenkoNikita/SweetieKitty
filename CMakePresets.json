@@ -13,14 +13,15 @@
         "displayName": "Windows Clang (Debug)",
         "description": "Debug build with Clang-cl (MSVC-compatible)",
         "generator": "Ninja",
-        "binaryDir": "${sourceDir}/build/${presetName}",
+        "binaryDir": "${sourceDir}/../build/${presetName}",
         
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Debug",
             "CMAKE_C_COMPILER": "clang-cl",
             "CMAKE_CXX_COMPILER": "clang-cl",
             "CMAKE_CONFIGURATION_TYPES": "Debug",
-            "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDebug"
+            "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDebug",
+            "CMAKE_EXPORT_COMPILE_COMMANDS" : "ON"
         },
 
         "environment": {
@@ -34,7 +35,7 @@
         "displayName": "Windows Clang (Release)",
         "description": "Release build with Clang-cl (MSVC-compatible)",
         "generator": "Ninja",
-        "binaryDir": "${sourceDir}/build/${presetName}",
+        "binaryDir": "${sourceDir}/../build/${presetName}",
 
         "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Release",

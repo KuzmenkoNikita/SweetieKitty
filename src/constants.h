@@ -17,4 +17,7 @@ enum class Color : uint8_t {
     White
 };
 
+constexpr int maxColumnNum = 7;
+constexpr int maxRowNum = 7;
+
 }
